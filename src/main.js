@@ -1,8 +1,9 @@
 //import './css/style.css';
+import {MainComponent} from "./js/MainComponent.js";
+
+
 if (module.hot) {
     module.hot.accept();
 }
 
-console.log('init app');
-console.log('init app2');
-console.log('init app2');
+const app = new MainComponent({anchor: document.body});
