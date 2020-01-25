@@ -1,14 +1,14 @@
 import { mainTemplate } from "../templates/main-template.js";
 import { Component } from "./Component.js";
-//import { actionService } from "../services/ActionService.js";
-//import { eventService } from "../services/EventService.js";
-//import { TooltipComponent } from "./TooltipComponent.js";
+import {ListComponent} from "./ListComponent.js";
 
 export class MainComponent extends Component {
 	constructor(props) {
 		super(props);
+		this.actionService = props.actionService;
+		this.eventService = props.eventService;
 		this.render();
-		//this.addListeners();
+		this.addListeners();
 	}
 
 	set state(value) {
@@ -25,22 +25,21 @@ export class MainComponent extends Component {
 		this.template = mainTemplate;
 	}
 
-	/*addListeners() {
-		eventService.subscribe('stateChanged', (state) => {
-			this.showTooltip(state.message);
+	addListeners() {
+		this.eventService.subscribe('stateChanged', (state) => {
 			this.state = state;
-			if (!(this.currentComponent instanceof this.state.route.component)) {
-				this.renderComponent();
-			} else {
-				this.applyChanges();
-			}
+			this.applyChanges();
 		});
-		actionService.dispatch('initApplication');
-	}*/
+	}
 
 	render() {
 		this.anchor.appendChild(this);
-
+		const countriesWrapper = this.shadowRoot.querySelector('.left-column');
+		this.countriesListComponent = new ListComponent({
+			anchor: countriesWrapper,
+			actionService: this.actionService,
+			state: { countriesView: this.props.state.countriesView }
+		});
 	}
 
 	renderComponent() {
@@ -56,8 +55,7 @@ export class MainComponent extends Component {
 	}
 
 	applyChanges() {
-		this.currentComponent.state = { ...this.state
-		};
+		this.countriesListComponent.state = { countriesView: this.props.state.countriesView };
 	}
 }
 

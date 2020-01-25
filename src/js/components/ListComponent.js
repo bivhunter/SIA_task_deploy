@@ -1,0 +1,52 @@
+import {Component} from "./Component.js";
+import {listTemplate} from "../templates/list-template.js";
+import {ListItemComponent} from "./ListItemComponent.js";
+
+export class ListComponent extends Component {
+    constructor(props) {
+        super(props);
+        this.actionService = props.actionService;
+        this.render();
+    }
+
+    onInit() {
+        this.template = listTemplate;
+       // this.initAttributes();
+
+        //this.addListeners();
+
+    }
+
+    initAttributes() {
+        this.dataset.selected = "" + this.props.state.selected;
+    }
+
+    render() {
+        this.anchor.appendChild(this);
+        this.list = this.shadowRoot.querySelector('.list');
+        this.renderList();
+    }
+
+    renderList() {
+        this.list.innerHTML = '';
+        console.log(this.props.state);
+        this.props.state.countriesView.forEach((item) => {
+           const listItem = document.createElement('li');
+           new ListItemComponent({
+               state: {...item},
+               anchor: listItem,
+               actionService: this.actionService
+           });
+
+           this.list.appendChild(listItem);
+        });
+    }
+
+    addListeners() {
+        this.addEventListener('click', () => {
+            this.actionService.dispatch('countrySelected', this.props.state.id);
+        });
+    }
+}
+
+customElements.define('my-component-list', ListComponent);
