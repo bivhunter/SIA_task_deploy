@@ -55,6 +55,8 @@ mainTemplate.innerHTML = `
             </div>
             <div class="right-column">
                 <h2>Cities</h2>
+                <div class="add-city"></div>
+                <div class="cities-list"></div>
             </div>
 		</div>
 		<footer><h3>Test task</h3></footer>

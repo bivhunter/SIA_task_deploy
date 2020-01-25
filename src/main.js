@@ -1,4 +1,6 @@
 //import './css/style.css';
+import './images/pencil.png';
+import './images/basket.png'
 import {MainComponent} from "./js/components/MainComponent.js";
 import {Store} from "./js/store/Store.js";
 import {EventService} from "./js/services/EventService.js";

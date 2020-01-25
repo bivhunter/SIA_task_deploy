@@ -1,33 +1,23 @@
 export class Component extends HTMLElement {
     constructor(props){
         super();
+        this.props = props;
         this.attachShadow({mode: 'open'});
         this.anchor = props.anchor;
-        this.props = props;
+        this.actionService = props.actionService;
         this.onInit();
+        this.state = props.state;
     }
 
     onInit() {  }
 
     set state(value) {
         this._state = { ...value };
-        this.props.state = this._state;
         this.render();
     }
 
     get state() {
         return this._state;
-    }
-
-    set props(value) {
-        this._props = {
-            ...this.props,
-            ...value
-        };
-    }
-
-    get props() {
-        return this._props;
     }
 
     set template(template) {

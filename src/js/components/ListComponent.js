@@ -1,16 +1,16 @@
 import {Component} from "./Component.js";
 import {listTemplate} from "../templates/list-template.js";
-import {ListItemComponent} from "./ListItemComponent.js";
+//import {ListItemComponent} from "./ListItemComponent.js";
 
 export class ListComponent extends Component {
     constructor(props) {
         super(props);
-        this.actionService = props.actionService;
-        this.render();
+
     }
 
     onInit() {
         this.template = listTemplate;
+
        // this.initAttributes();
 
         //this.addListeners();
@@ -29,10 +29,9 @@ export class ListComponent extends Component {
 
     renderList() {
         this.list.innerHTML = '';
-        console.log(this.props.state);
-        this.props.state.countriesView.forEach((item) => {
+        this.state.countriesView.forEach((item) => {
            const listItem = document.createElement('li');
-           new ListItemComponent({
+           new this.props.itemConstructor({
                state: {...item},
                anchor: listItem,
                actionService: this.actionService
@@ -44,7 +43,7 @@ export class ListComponent extends Component {
 
     addListeners() {
         this.addEventListener('click', () => {
-            this.actionService.dispatch('countrySelected', this.props.state.id);
+            this.actionService.dispatch('countrySelected', this.state.id);
         });
     }
 }

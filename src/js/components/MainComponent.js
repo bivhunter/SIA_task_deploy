@@ -1,20 +1,20 @@
 import { mainTemplate } from "../templates/main-template.js";
 import { Component } from "./Component.js";
 import {ListComponent} from "./ListComponent.js";
+import { ListItemComponent} from "./ListItemComponent.js";
+import { ListItemWithButtonComponentComponent} from "./ListItemWithButtonComponent.js";
 
 export class MainComponent extends Component {
 	constructor(props) {
 		super(props);
-		this.actionService = props.actionService;
 		this.eventService = props.eventService;
-		this.render();
+        this.render();
 		this.addListeners();
 	}
 
 	set state(value) {
 		this._state = { ...value
 		};
-		this.props.state = this._state;
 	}
 
 	get state() {
@@ -23,6 +23,7 @@ export class MainComponent extends Component {
 
 	onInit() {
 		this.template = mainTemplate;
+
 	}
 
 	addListeners() {
@@ -34,28 +35,45 @@ export class MainComponent extends Component {
 
 	render() {
 		this.anchor.appendChild(this);
-		const countriesWrapper = this.shadowRoot.querySelector('.left-column');
-		this.countriesListComponent = new ListComponent({
-			anchor: countriesWrapper,
-			actionService: this.actionService,
-			state: { countriesView: this.props.state.countriesView }
-		});
+		this.renderCountries();
+		this.renderCities();
+		this.renderAddCity();
 	}
 
-	renderComponent() {
-		this.currentComponent.remove();
-		this.currentComponent = new this.state.route.component({
-			...this.props,
-			anchor: this.mainWrapper
-		});
+    renderAddCity() {
+        const countriesWrapper = this.shadowRoot.querySelector('.add-city');
+        this.countriesListComponent = new ListComponent({
+            anchor: countriesWrapper,
+            actionService: this.actionService,
+            state: { countriesView: this.state.countriesView },
+            itemConstructor: ListItemComponent
+        });
 	}
 
-	showTooltip(message) {
-		this.tooltip.state = message;
-	}
+	renderCountries() {
+        const countriesWrapper = this.shadowRoot.querySelector('.left-column');
+        this.countriesListComponent = new ListComponent({
+            anchor: countriesWrapper,
+            actionService: this.actionService,
+            state: { countriesView: this.state.countriesView },
+            itemConstructor: ListItemComponent
+        });
+    }
+
+    renderCities() {
+        const citiesWrapper = this.shadowRoot.querySelector('.cities-list');
+        this.citiesListComponent = new ListComponent({
+            anchor: citiesWrapper,
+            actionService: this.actionService,
+            state: { countriesView: this.state.citiesView },
+			itemConstructor: ListItemWithButtonComponentComponent
+        });
+    }
+
 
 	applyChanges() {
-		this.countriesListComponent.state = { countriesView: this.props.state.countriesView };
+		this.countriesListComponent.state = { countriesView: this.state.countriesView };
+        this.citiesListComponent.state = { countriesView: this.state.citiesView };
 	}
 }
 

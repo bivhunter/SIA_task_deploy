@@ -8,13 +8,13 @@ export class Store {
         this.reducers = createReducers();
         this.state = {
             citiesList: [
-                { "id": 1, "country_id": 1, "title": "London", "desc": "" },
-                { "id": 2, "country_id": 1, "title": "Liverpool", "desc": "" },
-                { "id": 3, "country_id": 2, "title": "Paris", "desc": "" },
-                { "id": 4, "country_id": 3, "title": "Madrid", "desc": "" },
-                { "id": 5, "country_id": 4, "title": "Berlin", "desc": "" },
-                { "id": 6, "country_id": 4, "title": "Munich", "desc": "" },
-                { "id": 7, "country_id": 4, "title": "Hamburg", "desc": "" }
+                { "id": 1, "country_id": 1, "title": "London", "desc": "The United Kingdom of Great Britain and Northern Ireland, commonly known as the United Kingdom(UK) or Britain, is a sovereign state in Europe." },
+                { "id": 2, "country_id": 1, "title": "Liverpool", "desc": "The United Kingdom of Great Britain and Northern Ireland, commonly known as the United Kingdom(UK) or Britain, is a sovereign state in Europe." },
+                { "id": 3, "country_id": 2, "title": "Paris", "desc": "The United Kingdom of Great Britain and Northern Ireland, commonly known as the United Kingdom(UK) or Britain, is a sovereign state in Europe." },
+                { "id": 4, "country_id": 3, "title": "Madrid", "desc": "The United Kingdom of Great Britain and Northern Ireland, commonly known as the United Kingdom(UK) or Britain, is a sovereign state in Europe." },
+                { "id": 5, "country_id": 4, "title": "Berlin", "desc": "The United Kingdom of Great Britain and Northern Ireland, commonly known as the United Kingdom(UK) or Britain, is a sovereign state in Europe." },
+                { "id": 6, "country_id": 4, "title": "Munich", "desc": "The United Kingdom of Great Britain and Northern Ireland, commonly known as the United Kingdom(UK) or Britain, is a sovereign state in Europe." },
+                { "id": 7, "country_id": 4, "title": "Hamburg", "desc": "The United Kingdom of Great Britain and Northern Ireland, commonly known as the United Kingdom(UK) or Britain, is a sovereign state in Europe." }
                 ]
             ,
             countriesList: [
