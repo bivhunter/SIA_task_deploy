@@ -1,4 +1,4 @@
-//import './css/style.css';
+import './css/style.css';
 import './images/pencil.png';
 import './images/basket.png'
 import {MainComponent} from "./js/components/MainComponent.js";

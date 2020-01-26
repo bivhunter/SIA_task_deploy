@@ -1,47 +1,60 @@
 export const listItemWithButtonTemplate = document.createElement('template');
 listItemWithButtonTemplate.innerHTML = `
 <style>
-    .content-wrapper {
-    display: inline-block;
+
+    .wrapper {
+        display: table;
         width: 100%;
-        
+        vertical-align: middle;
+        padding: 15px;
+        border-top: 1px #D1D1D1 solid;
+        box-sizing: border-box;    
+        /*border-collapse: collapse;*/
+        /*border-bottom: none;*/
+        color: #4D4D4D;
+    }
+    
+    /*.wrapper:last-child {
+        border: 1px #D1D1D1 solid;
+    }
+    */
+    .content-wrapper {
+        display: inline-block;
+        width: 700px;
+            
     }
     
     .button-wrapper {
         display: table-cell;
         height: 50px;
-        width: 15%;
+        width: 100px;
         
         text-align: center;
         vertical-align: middle;
     }
     
-    .wrapper {
-        display: table;
-        width: 100%;
-        vertical-align: middle;
-    }
+  
     
     .edit-button {
         display: inline-block;
         margin: 5px;
-        width: 32px;
-        height: 32px;
+        width: 20px;
+        height: 20px;
         background-image: url("../../images/pencil.png");
         background-repeat: no-repeat;
-        background-size: 22px 22px;
+        background-size: 15px 15px;
         background-position: center;
       
     }
     
     .delete-button {
         display: inline-block;
-        width: 32px;
-        height: 32px;
+        width: 20px;
+        height: 20px;
         margin: 5px;
         background-image: url("../../images/basket.png");
         background-repeat: no-repeat;
-        background-size: 32px 32px;
+        background-size: 20px 20px;
         background-position: center;
     }
     
@@ -59,12 +72,22 @@ listItemWithButtonTemplate.innerHTML = `
         pointer-events: none;
     }
     
+   .title {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .description {
+        margin: 0;
+    }
+    
+    
     
     
 </style>
 <div class="wrapper">
     <div class="content-wrapper">
-        <h3 class="title"></h3>
+        <h2 class="title"></h2>
         <p class="description"></p>
     </div>
     <div class="button-wrapper">
