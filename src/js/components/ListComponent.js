@@ -29,7 +29,7 @@ export class ListComponent extends Component {
 
     renderList() {
         this.list.innerHTML = '';
-        this.state.countriesView.forEach((item) => {
+        this.state.listView.forEach((item) => {
            const listItem = document.createElement('li');
            new this.props.itemConstructor({
                state: {...item},

@@ -14,7 +14,7 @@ export class ButtonComponent extends Component {
     }
 
     initAttributes() {
-        this.dataset.hidden = "" + !this.state.hidden;
+        this.dataset.hidden = "" + this.state.hidden;
     }
 
     render() {
@@ -25,7 +25,7 @@ export class ButtonComponent extends Component {
 
     addListeners() {
         this.addEventListener('click', () => {
-            this.actionService.dispatch('addCity');
+            this.actionService.dispatch('addCityMode');
         });
     }
 }

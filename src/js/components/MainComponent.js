@@ -3,6 +3,8 @@ import { Component } from "./Component.js";
 import {ListComponent} from "./ListComponent.js";
 import { ListItemComponent} from "./ListItemComponent.js";
 import { ListItemWithButtonComponentComponent} from "./ListItemWithButtonComponent.js";
+import { EditorComponent } from "./EditorComponent.js";
+import {ButtonComponent} from "./ButtonComponent.js";
 
 export class MainComponent extends Component {
 	constructor(props) {
@@ -41,13 +43,18 @@ export class MainComponent extends Component {
 	}
 
     renderAddCity() {
-        const countriesWrapper = this.shadowRoot.querySelector('.add-city');
-        this.countriesListComponent = new ListComponent({
-            anchor: countriesWrapper,
+        const cityEditWrapper = this.shadowRoot.querySelector('.add-city');
+        cityEditWrapper.innerHTML = '';
+        this.cityEditComponent = new EditorComponent({
+            anchor: cityEditWrapper,
             actionService: this.actionService,
-            state: { countriesView: this.state.countriesView },
-            itemConstructor: ListItemComponent
+            state: this.state.editorView ,
         });
+        new ButtonComponent({
+            anchor: cityEditWrapper,
+            actionService: this.actionService,
+            state: {hidden: !this.state.editorView.hidden, title: '+ Add City'} ,
+		})
 	}
 
 	renderCountries() {
@@ -55,7 +62,7 @@ export class MainComponent extends Component {
         this.countriesListComponent = new ListComponent({
             anchor: countriesWrapper,
             actionService: this.actionService,
-            state: { countriesView: this.state.countriesView },
+            state: { listView: this.state.countriesView },
             itemConstructor: ListItemComponent
         });
     }
@@ -65,15 +72,16 @@ export class MainComponent extends Component {
         this.citiesListComponent = new ListComponent({
             anchor: citiesWrapper,
             actionService: this.actionService,
-            state: { countriesView: this.state.citiesView },
+            state: { listView: this.state.citiesView },
 			itemConstructor: ListItemWithButtonComponentComponent
         });
     }
 
 
 	applyChanges() {
-		this.countriesListComponent.state = { countriesView: this.state.countriesView };
-        this.citiesListComponent.state = { countriesView: this.state.citiesView };
+		this.countriesListComponent.state = { listView: this.state.countriesView };
+        this.citiesListComponent.state = { listView: this.state.citiesView };
+        this.renderAddCity();
 	}
 }
 

@@ -10,13 +10,15 @@ export class ActionService {
     initHandlers() {
         this.handlers = {
             'countrySelected': (id) => this.countrySelected(id),
+            'addCityMode': () => this.addCityMode(),
+            'submitAddCity': (data) => this.submitCityAdd(data),
+            'cancelAddCity': () => this.cancelCityAdd(),
+            'editCityMode': (data) => this.editCityMode(data),
+            'deleteCity': (data) => this.deleteCity(data),
         }
 
     }
 
-    countrySelected(id) {
-        this.store.dispatch('CHANGE_COUNTRY', id);
-    }
 
     dispatch(action, payload) {
         if (this.handlers[action]) {
@@ -24,6 +26,42 @@ export class ActionService {
         }
     }
 
+    countrySelected(id) {
+        this.store.dispatch('CHANGE_COUNTRY', id);
+    }
+
+    addCityMode() {
+        this.store.dispatch('OPEN_EDITOR', {
+           hidden: false,
+           title: "",
+           desc: ""
+        });
+    }
+
+    submitCityAdd(data) {
+
+        if (data.id) {
+            this.store.dispatch('CHANGE_CITY', data);
+            return;
+        }
+        this.store.dispatch('ADD_CITY', data);
+    }
+
+    cancelCityAdd() {
+        this.store.dispatch('CLOSE_EDITOR');
+    }
+
+    editCityMode(data) {
+        console.log(data);
+        this.store.dispatch('OPEN_EDITOR', {
+            ...data,
+            hidden: false,
+        });
+    }
+
+    deleteCity(data) {
+        this.store.dispatch('DELETE_CITY', data);
+    }
 
 }
 

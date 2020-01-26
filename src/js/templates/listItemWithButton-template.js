@@ -47,11 +47,18 @@ listItemWithButtonTemplate.innerHTML = `
     
     .edit-button:hover {
         cursor: pointer;
+       
     }
     
      .delete-button:hover {
         cursor: pointer;
     }
+    
+     .edit-button[data-disable="true"],.delete-button[data-disable="true"]{
+        opacity: 0.4;
+        pointer-events: none;
+    }
+    
     
     
 </style>

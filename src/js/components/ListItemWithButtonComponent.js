@@ -5,7 +5,7 @@ export class ListItemWithButtonComponentComponent extends Component {
     constructor(props) {
         super(props);
         this.initAttributes();
-       // this.addListeners();
+        this.addListeners();
     }
 
     onInit() {
@@ -14,17 +14,25 @@ export class ListItemWithButtonComponentComponent extends Component {
 
     initAttributes() {
         this.dataset.selected = "" + this.state.selected;
+        this.editButton.dataset.disable = "" + this.state.disable;
+        this.deleteButton.dataset.disable = "" + this.state.disable;
     }
 
     render() {
         this.anchor.appendChild(this);
         this.shadowRoot.querySelector('.title').textContent = this.state.title;
         this.shadowRoot.querySelector('.description').textContent = this.state.desc;
+        this.editButton = this.shadowRoot.querySelector('.edit-button');
+
+        this.deleteButton = this.shadowRoot.querySelector('.delete-button');
     }
 
     addListeners() {
-        this.addEventListener('click', () => {
-            this.actionService.dispatch('countrySelected', this.state.id);
+        this.editButton.addEventListener('click', () => {
+            this.actionService.dispatch('editCityMode', this.state);
+        });
+        this.deleteButton.addEventListener('click', () => {
+            this.actionService.dispatch('deleteCity', this.state);
         });
     }
 }

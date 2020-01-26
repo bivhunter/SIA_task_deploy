@@ -14,18 +14,35 @@ export class EditorComponent extends Component {
     }
 
     initAttributes() {
-        this.dataset.selected = "" + this.state.selected;
+        this.dataset.hidden = "" + this.state.hidden;
     }
 
     render() {
         this.anchor.appendChild(this);
-        this.shadowRoot.querySelector('.title').textContent = this.state.title;
-        this.shadowRoot.querySelector('.description').textContent = this.state.text;
+        this.submitButton = this.shadowRoot.querySelector('.submit-button');
+        this.cancelButton = this.shadowRoot.querySelector('.cancel-button');
+        this.input = this.shadowRoot.querySelector('input');
+        this.input.value = this.state.title;
+        this.textarea = this.shadowRoot.querySelector('textarea');
+        this.textarea.value = this.state.desc;
+        /*this.shadowRoot.querySelector('.title').textContent = this.state.title;
+        this.shadowRoot.querySelector('.description').textContent = this.state.text;*/
     }
 
     addListeners() {
-        this.addEventListener('click', () => {
-            this.actionService.dispatch('countrySelected', this.state.id);
+        this.submitButton.addEventListener('click', () => {
+            if (!this.input.value) {
+                this.input.dataset.error = "true";
+                return;
+            }
+            this.actionService.dispatch('submitAddCity', {
+                ...this.state,
+                title: this.input.value,
+                desc: this.textarea.value
+            });
+        });
+        this.cancelButton.addEventListener('click', () => {
+            this.actionService.dispatch('cancelAddCity');
         });
     }
 }

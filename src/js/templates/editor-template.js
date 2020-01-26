@@ -1,13 +1,19 @@
 export const editorTemplate = document.createElement('template');
 editorTemplate.innerHTML = `
 <style>
-    ul{
-        list-style: none;
-    }
+    :host([data-hidden="true"]) {
+        display: none;
+    }  
+    
  
 </style>
-<ul class="list">
-    
-</ul>
+<div class="wrapper">
+    <input type="text" placeholder="City Name..." name="cityName" required="">
+    <textarea placeholder="City Description..."></textarea>
+    <div class="button-wrapper">
+        <button type="submit" class="submit-button">Submit</button>
+        <button class="cancel-button">Cancel</button>    
+    </div>
+</div>
 	
 `
