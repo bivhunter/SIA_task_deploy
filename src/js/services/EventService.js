@@ -17,7 +17,6 @@ export class EventService {
         this.channels[channel] = this.channels[channel].filter((item) => {
             return  item !== fn;
         });
-
     }
 
     publish(channel, message) {

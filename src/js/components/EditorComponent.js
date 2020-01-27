@@ -10,7 +10,6 @@ export class EditorComponent extends Component {
 
     onInit() {
         this.template = editorTemplate;
-
     }
 
     initAttributes() {
@@ -26,15 +25,12 @@ export class EditorComponent extends Component {
         this.input.focus();
         this.textarea = this.shadowRoot.querySelector('textarea');
         this.textarea.value = this.state.desc;
-        /*this.shadowRoot.querySelector('.title').textContent = this.state.title;
-        this.shadowRoot.querySelector('.description').textContent = this.state.text;*/
     }
 
     addListeners() {
         this.submitButton.addEventListener('click', () => {
             if (!this.input.value) {
                 this.input.dataset.error = "true";
-                this.input.focus();
                 return;
             }
             this.actionService.dispatch('submitAddCity', {

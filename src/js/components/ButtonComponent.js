@@ -10,7 +10,6 @@ export class ButtonComponent extends Component {
 
     onInit() {
         this.template = buttonTemplate;
-
     }
 
     initAttributes() {
@@ -20,7 +19,6 @@ export class ButtonComponent extends Component {
     render() {
         this.anchor.appendChild(this);
         this.shadowRoot.querySelector('button').textContent = this.state.title;
-        //this.shadowRoot.querySelector('.description').textContent = this.state.text;
     }
 
     addListeners() {

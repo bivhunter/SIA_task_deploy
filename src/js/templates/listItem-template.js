@@ -6,6 +6,10 @@ listItemTemplate.innerHTML = `
         padding: 10px;
         margin: 1px;
     }
+    
+    .wrapper:hover {
+        cursor: pointer;
+    }
  
     .title {
         color: #0072BC;

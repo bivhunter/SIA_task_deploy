@@ -5,16 +5,10 @@ import {listTemplate} from "../templates/list-template.js";
 export class ListComponent extends Component {
     constructor(props) {
         super(props);
-
     }
 
     onInit() {
         this.template = listTemplate;
-
-       // this.initAttributes();
-
-        //this.addListeners();
-
     }
 
     initAttributes() {

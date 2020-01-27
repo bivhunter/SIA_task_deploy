@@ -1,6 +1,6 @@
 import './css/style.css';
 import './images/pencil.png';
-import './images/basket.png'
+import './images/basket.png';
 import {MainComponent} from "./js/components/MainComponent.js";
 import {Store} from "./js/store/Store.js";
 import {EventService} from "./js/services/EventService.js";
@@ -11,6 +11,7 @@ if (module.hot) {
     module.hot.accept();
 }
 
+history.pushState('app', "", "/countries_app");
 const eventService = new EventService();
 const store = new Store({eventService});
 const actionService = new ActionService({store});
