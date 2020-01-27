@@ -2,22 +2,31 @@ export const mainTemplate = document.createElement('template');
 mainTemplate.innerHTML = `
 <style>
 .main  {
-    
     min-height: 100%;
     min-width: 1070px;
-    /*margin: 0px auto 0 auto;*/
-    padding: 0 0 90px 0;
+    padding: 0 0 85px 0;
     position: relative;
     overflow: auto;
+    box-sizing: border-box;
+ }
+
+ .head-wrapper {
+     width: 1070px;
+     height: 55px;
+     margin: 0 auto 0 auto;
  }
  
- /*.add-city {
-    padding: 10px;
- }*/
- 
+ .head-wrapper:before {
+    display: inline-block;
+    height: 100%;
+    content: "";
+    vertical-align: middle;
+ }
+
  .content-wrapper {
     width: 1070px;
-    margin: 0 auto 0 auto;
+    max-height: 100%;
+    margin: 0 auto 55px auto;
  }
  
  .left-column {
@@ -27,7 +36,6 @@ mainTemplate.innerHTML = `
  
  .right-column {
     width: 800px;
-    
     float: right;
  }
  
@@ -50,17 +58,10 @@ mainTemplate.innerHTML = `
     background: #3D3D3D;
     color: #9F9F9F;
  }
- 
- nav:before, footer:before {
-    display: inline-block;
-    height: 100%;
-    content: "";
-    vertical-align: middle;
- }
- 
+
  h1, h3 {
     display: inline-block;
-    margin: 0 0 0 200px;
+    margin: 0;
     padding: 0;
  }
  
@@ -73,14 +74,15 @@ mainTemplate.innerHTML = `
     border-radius: 5px;
  }
  
-
- 
- 
- 
 </style>
 
 	<div class=main>
-	    <nav><h1>Countries of the Word</h1></nav>
+	    <nav>
+            <div>
+                <div class="head-wrapper">
+                    <h1>Countries of the Word</h1>
+                </div>
+        </nav>
 	    <div class="content-wrapper">
             <div class="left-column">
                 <h2>Countries</h2>
@@ -93,6 +95,10 @@ mainTemplate.innerHTML = `
                 </div>
             </div>
 		</div>
-		<footer><h3>Test task</h3></footer>
+		<footer>
+		    <div class="head-wrapper">
+		        <h3>Test task</h3>
+		    </div>
+		 </footer>
 	</div>
 `

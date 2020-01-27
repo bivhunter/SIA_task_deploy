@@ -9,53 +9,39 @@ listItemWithButtonTemplate.innerHTML = `
         padding: 15px;
         border-top: 1px #D1D1D1 solid;
         box-sizing: border-box;    
-        /*border-collapse: collapse;*/
-        /*border-bottom: none;*/
         color: #4D4D4D;
     }
     
-    /*.wrapper:last-child {
-        border: 1px #D1D1D1 solid;
-    }
-    */
     .content-wrapper {
         display: inline-block;
         width: 700px;
-            
     }
     
     .button-wrapper {
         display: table-cell;
         height: 50px;
         width: 100px;
-        
         text-align: center;
         vertical-align: middle;
     }
     
-  
-    
-    .edit-button {
+    .edit-button, .delete-button {
         display: inline-block;
         margin: 5px;
         width: 20px;
         height: 20px;
-        background-image: url("../../images/pencil.png");
         background-repeat: no-repeat;
-        background-size: 15px 15px;
         background-position: center;
-      
+    }
+    
+    .edit-button {
+         background-image: url("../../images/pencil.png");
+          background-size: 15px 15px;
     }
     
     .delete-button {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        margin: 5px;
         background-image: url("../../images/basket.png");
-        background-repeat: no-repeat;
         background-size: 20px 20px;
-        background-position: center;
     }
     
     .edit-button:hover {

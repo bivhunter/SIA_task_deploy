@@ -104,5 +104,4 @@ function addCity( data, citiesList, country_id ) {
     });
 
     return citiesList;
-
 }

@@ -10,7 +10,6 @@ export class ListItemComponent extends Component {
 
     onInit() {
         this.template = listItemTemplate;
-
     }
 
     initAttributes() {

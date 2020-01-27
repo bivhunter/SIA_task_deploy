@@ -23,7 +23,6 @@ export class ListItemWithButtonComponentComponent extends Component {
         this.shadowRoot.querySelector('.title').textContent = this.state.title;
         this.shadowRoot.querySelector('.description').textContent = this.state.desc;
         this.editButton = this.shadowRoot.querySelector('.edit-button');
-
         this.deleteButton = this.shadowRoot.querySelector('.delete-button');
     }
 

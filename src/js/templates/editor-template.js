@@ -18,10 +18,11 @@ editorTemplate.innerHTML = `
         border: 1px #D1D1D1 solid;
         border-radius: 5px;
         box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        margin: 15px 0 0 0;
+        margin: 15px 0 15px 0;
         box-sizing: border-box;
         padding-left: 20px;
         outline: 0;
+        font: inherit;
     }
     
     input[data-error="true"] {
@@ -34,14 +35,10 @@ editorTemplate.innerHTML = `
         box-shadow: 1px 1px 2px rgba(0,114,188,0.5);
     }
     
-    
-    
      textarea {
         height: 80px;
         padding-top: 15px;
         resize: none;
-        font: inherit;
-        
     }
     
     .submit-button, .cancel-button {
@@ -51,7 +48,7 @@ editorTemplate.innerHTML = `
         height: 45px;
         border-radius: 5px;
         font-size: 17px;
-        margin: 15px 0 15px 15px;
+        margin: 0 15px 0 0;
     }
     
     .submit-button {
@@ -68,7 +65,6 @@ editorTemplate.innerHTML = `
         background: white;
         color: #4D4D4D; 
         border: 1px #D1D1D1 solid;
-        
     }
     
     .cancel-button:hover {

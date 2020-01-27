@@ -25,7 +25,6 @@ export class MainComponent extends Component {
 
 	onInit() {
 		this.template = mainTemplate;
-
 	}
 
 	addListeners() {
@@ -45,11 +44,12 @@ export class MainComponent extends Component {
     renderAddCity() {
         const cityEditWrapper = this.shadowRoot.querySelector('.add-city');
         cityEditWrapper.innerHTML = '';
-        this.cityEditComponent = new EditorComponent({
+        new EditorComponent({
             anchor: cityEditWrapper,
             actionService: this.actionService,
             state: this.state.editorView ,
         });
+
         new ButtonComponent({
             anchor: cityEditWrapper,
             actionService: this.actionService,
@@ -76,7 +76,6 @@ export class MainComponent extends Component {
 			itemConstructor: ListItemWithButtonComponentComponent
         });
     }
-
 
 	applyChanges() {
 		this.countriesListComponent.state = { listView: this.state.countriesView };
