@@ -11,6 +11,7 @@ if (module.hot) {
     module.hot.accept();
 }
 
+history.pushState('app', "", "/countries_app");
 const eventService = new EventService();
 const store = new Store({eventService});
 const actionService = new ActionService({store});
