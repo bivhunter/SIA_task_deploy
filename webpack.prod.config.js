@@ -51,12 +51,12 @@ module.exports = {
                 // Loads images into CSS and Javascript files
                 test: /\.(png|svg|jpg|gif)$/,
                 use: [{
-                    loader: 'url-loader',
-                    options: {
-                       /* name: '[name].[ext]',*/
-                        /* context: path.resolve(__dirname, '/src'),*/
-                       /* outputPath: './images/'*/
-                    }
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            /* context: path.resolve(__dirname, '/src'),*/
+                            outputPath: 'images/'
+                        }
                 }]
             },
             {

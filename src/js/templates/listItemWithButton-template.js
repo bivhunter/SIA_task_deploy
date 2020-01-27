@@ -35,12 +35,12 @@ listItemWithButtonTemplate.innerHTML = `
     }
     
     .edit-button {
-         background-image: url("../../images/pencil.png");
+         background-image: url("././images/pencil.png");
           background-size: 15px 15px;
     }
     
     .delete-button {
-        background-image: url("../../images/basket.png");
+        background-image: url("././images/basket.png");
         background-size: 20px 20px;
     }
     
