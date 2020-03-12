@@ -10,11 +10,11 @@ import {ActionService} from "./js/services/ActionService.js";
 if (module.hot) {
     module.hot.accept();
 }
-// try {
-//     history.pushState( 'app', "", "/countries_app" );
-// } catch {
-//     console.log('index.html');
-// }
+try {
+    history.pushState( 'app', "", "/countries_app" );
+} catch {
+    console.log('index.html');
+}
 
 const eventService = new EventService();
 const store = new Store({eventService});
