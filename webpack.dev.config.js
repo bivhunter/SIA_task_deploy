@@ -7,7 +7,7 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, 'dist'),
-        publicPath: './',
+        publicPath: '/',
         filename: '[name].js'
     },
     mode: 'development',
@@ -27,7 +27,7 @@ module.exports = {
                 use: [
                     {
                         loader: "html-loader",
-                        //options: { minimize: true }
+                        options: { minimize: true }
                     }
                 ]
             },

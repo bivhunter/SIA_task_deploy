@@ -3,30 +3,18 @@ listItemWithButtonTemplate.innerHTML = `
 <style>
 
     .wrapper {
-        display: table;
-        width: 100%;
-        vertical-align: middle;
+        display: flex;
         padding: 15px;
         border-top: 1px #D1D1D1 solid;
-        box-sizing: border-box;    
         color: #4D4D4D;
     }
-    
-    .content-wrapper {
-        display: inline-block;
-        width: 700px;
-    }
-    
+ 
     .button-wrapper {
-        display: table-cell;
-        height: 50px;
-        width: 100px;
-        text-align: center;
-        vertical-align: middle;
+        display: flex;
+        align-items: center;
     }
     
     .edit-button, .delete-button {
-        display: inline-block;
         margin: 5px;
         width: 20px;
         height: 20px;
@@ -46,7 +34,6 @@ listItemWithButtonTemplate.innerHTML = `
     
     .edit-button:hover {
         cursor: pointer;
-       
     }
     
      .delete-button:hover {
@@ -66,8 +53,6 @@ listItemWithButtonTemplate.innerHTML = `
     .description {
         margin: 0;
     }
-    
-    
     
     
 </style>

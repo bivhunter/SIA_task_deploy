@@ -2,83 +2,66 @@ export const mainTemplate = document.createElement('template');
 mainTemplate.innerHTML = `
 <style>
 .main  {
-    min-height: 100%;
-    min-width: 1070px;
-    padding: 0 0 85px 0;
-    position: relative;
-    overflow: auto;
-    box-sizing: border-box;
- }
-
- .head-wrapper {
-     width: 1070px;
-     height: 55px;
-     margin: 0 auto 0 auto;
- }
- 
- .head-wrapper:before {
-    display: inline-block;
     height: 100%;
-    content: "";
-    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
  }
 
- .content-wrapper {
-    width: 1070px;
-    max-height: 100%;
-    margin: 0 auto 55px auto;
+ nav, footer {
+    flex: 0 0 55px;
+    align-self: stretch;
+    display: flex;
+    justify-content: center;
  }
- 
- .left-column {
-    width: 245px;
-    float: left;
+
+ nav {
+   background: #0072BC;
+   color: white;
+}
+
+footer {
+   background: #3D3D3D;
+   color: #9F9F9F;
+}
+
+.content-wrapper {
+   flex: 1 0 auto;
+   display: flex;
+   max-width: 1140px;
+   margin: 40px 0 40px 0;
+}
+
+.left-column {
+    flex: 0 1 260px;
+    margin: 0 30px 0 0;
  }
  
  .right-column {
-    width: 800px;
-    float: right;
- }
- 
- nav {
-    width: 100%;
-    height: 55px;
-    margin: 0 auto 35px auto ;
-    padding: 0;
-    background: #0072BC;
-    color: white;
- }
- 
- footer {
-    width: 100%;
-    height: 55px;
-    position: absolute;
-    margin: 35px auto 0 auto;
-    bottom: 0;
-    left: 0;
-    background: #3D3D3D;
-    color: #9F9F9F;
- }
-
- h1, h3 {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
- }
- 
- h2 {
-    margin: 0 0 10px 0px;
- }
+    flex: 0 1 840px;
+ } 
  
  .cities-wrapper {
     border: 1px #D1D1D1 solid;
     border-radius: 5px;
  }
+
+ .head-wrapper {
+     display: flex;
+     flex-basis: 1140px;
+     align-items: center;
+ }
+
+ h2 {
+    margin: 0 0 10px 0px;
+ }
+ 
+
  
 </style>
 
 	<div class=main>
 	    <nav>
-            <div>
                 <div class="head-wrapper">
                     <h1>Countries of the Word</h1>
                 </div>

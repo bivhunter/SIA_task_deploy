@@ -6,29 +6,31 @@ editorTemplate.innerHTML = `
     }  
     
     .wrapper {
-       width: 100%;
+       display: flex;
+       flex-direction: column;
        padding: 15px;
        background: #F7F7F7;
        box-sizing: border-box;
     }
     
     input, textarea {
-        width: 766px;
-        height: 40px;
+        height: 45px;
         border: 1px #D1D1D1 solid;
         border-radius: 5px;
         box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        margin: 15px 0 15px 0;
-        box-sizing: border-box;
+        margin: 15px 0 7px 0;
         padding-left: 20px;
         outline: 0;
         font: inherit;
     }
     
+    .button-wrapper {
+        margin-top: 15px;
+    }
+
     input[data-error="true"] {
          border: 1px red solid;
     }
-    
     
     input:focus, textarea:focus {
         border: 1px #0072BC solid;
@@ -76,6 +78,8 @@ editorTemplate.innerHTML = `
         color: #0072BC;
         margin: 0px;
     }
+
+    
  
 </style>
 <div class="wrapper">

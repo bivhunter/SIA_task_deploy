@@ -8,7 +8,10 @@ import config from '../../webpack.dev.config.js'
 const app = express(),
     DIST_DIR = __dirname,
     compiler = webpack(config),
+    
     HTML_FILE = path.join(compiler.outputPath, 'index.html');
+    console.log(DIST_DIR, 'dist_dir');
+    console.log(compiler.outputPath, 'compiler');
 
 
 app.use(webpackDevMiddleware(compiler, {
